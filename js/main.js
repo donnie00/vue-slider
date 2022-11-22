@@ -52,5 +52,15 @@ createApp({
 		thumbClick(clickedIndex) {
 			this.currentImgIndex = clickedIndex;
 		},
+		stopAutoplay() {
+			console.log('autoplay in pausa');
+			clearInterval(this.auto);
+		},
+	},
+
+	mounted() {
+		const auto = setInterval(() => {
+			this.slideDown();
+		}, 3000);
 	},
 }).mount('#app');
