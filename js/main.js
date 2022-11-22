@@ -36,18 +36,21 @@ createApp({
 
 	methods: {
 		slideUp() {
-			this.currentImgIndex--;
-
-			if (this.currentImgIndex < 0) {
+			if (this.currentImgIndex === 0) {
 				this.currentImgIndex = this.slides.length - 1;
+			} else {
+				this.currentImgIndex--;
 			}
 		},
 		slideDown() {
-			this.currentImgIndex++;
-
-			if (this.currentImgIndex === this.slides.length) {
+			if (this.currentImgIndex === this.slides.length - 1) {
 				this.currentImgIndex = 0;
+			} else {
+				this.currentImgIndex++;
 			}
+		},
+		thumbClick(clickedIndex) {
+			this.currentImgIndex = clickedIndex;
 		},
 	},
 }).mount('#app');
