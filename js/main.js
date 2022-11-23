@@ -31,6 +31,7 @@ createApp({
 				},
 			],
 			currentImgIndex: 0,
+			autoplay: null,
 		};
 	},
 
@@ -54,13 +55,13 @@ createApp({
 		},
 		stopAutoplay() {
 			console.log('autoplay in pausa');
-			clearInterval(this.auto);
+			clearInterval(this.autoplay);
 		},
 	},
 
 	mounted() {
-		const auto = setInterval(() => {
+		this.autoplay = setInterval(() => {
 			this.slideDown();
-		}, 3000);
+		}, 300);
 	},
 }).mount('#app');
